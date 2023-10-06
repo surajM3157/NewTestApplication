@@ -16,10 +16,23 @@ class ProductAdapter(
     private val productList: List<Meal>
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
+    private var itemClickListener: OnItemClickListener? = null
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val productImageView: ImageView = itemView.findViewById(R.id.iv_image)
         val product_name: TextView = itemView.findViewById(R.id.tv_product_name)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION){
+                    itemClickListener?.onItemClick(productList[position])
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -35,16 +48,22 @@ class ProductAdapter(
             .into(holder.productImageView)
         val nameText = product.strMeal
         holder.product_name.text = nameText
-
-       /* holder.itemView.setOnClickListener {
-            val mealEntity = Meal(0, idMeal = product.idMeal, strMeal = product.strMeal, strMealThumb = product.strMealThumb
-            )
-        }*/
-
+        /* holder.itemView.setOnClickListener {
+             val mealEntity = Meal(
+                 0,
+                 idMeal = product.idMeal,
+                 strMeal = product.strMeal,
+                 strMealThumb = product.strMealThumb
+             )
+         }*/
     }
 
 
     override fun getItemCount(): Int {
         return productList.size
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(meal: Meal)
     }
 }
