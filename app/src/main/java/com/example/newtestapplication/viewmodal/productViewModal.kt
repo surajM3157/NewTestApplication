@@ -11,11 +11,11 @@ import kotlinx.coroutines.launch
 
 class productViewModal(
     private val productRepository: productRepository,
- /*   private val contactDao: ContactDAO*/
+    private val contactDao: ContactDAO
 ) : ViewModel() {
     fun insertData(meal: Meal) {
         GlobalScope.launch {
-//            contactDao.insertContact(meal)
+            contactDao.insertContact(meal)
         }
     }
 

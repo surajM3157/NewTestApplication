@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.newtestapplication.Adapter.ProductAdapter
 import com.example.newtestapplication.Modal.Meal
 import com.example.newtestapplication.Repository.productRepository
+import com.example.newtestapplication.Roomdatabase.ContactDAO
 import com.example.newtestapplication.Roomdatabase.ContactDatabase
 import com.example.newtestapplication.api.ApiInterface
 import com.example.newtestapplication.api.ApiUtility
@@ -21,7 +22,9 @@ class DetaileActivity : AppCompatActivity() {
 
     private lateinit var viewModal: productViewModal
     private lateinit var binding: ActivityDetaileBinding
+    private lateinit var contactDao: ContactDAO
     private lateinit var database: ContactDatabase
+
     val productList = mutableListOf<Meal>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +33,13 @@ class DetaileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+
+        database = ContactDatabase.getInstance(applicationContext)
+        contactDao = database.contactDao()
+
         val apiInterface = ApiUtility.getInstance().create(ApiInterface::class.java)
         val productRepository = productRepository(apiInterface)
-        val viewModelFactory = ViewModelFactory(productRepository)
+        val viewModelFactory = ViewModelFactory(productRepository,contactDao)
         viewModal = ViewModelProvider(this, viewModelFactory).get(productViewModal::class.java)
 
         val adapter = ProductAdapter(this, productList)
