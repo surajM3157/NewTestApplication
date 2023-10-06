@@ -67,7 +67,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime:2.3.1"
 
     implementation "androidx.room:room-runtime:2.4.0" // Use the latest version
-    kapt "androidx.room:room-compiler:2.4.0" // Use the latest version
+    kapt "androidx.room:room-compiler:2.5.2" // Use the latest version
 
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'

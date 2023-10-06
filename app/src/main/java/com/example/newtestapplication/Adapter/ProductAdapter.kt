@@ -30,6 +30,7 @@ class ProductAdapter(
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
                     itemClickListener?.onItemClick(productList[position])
+
                 }
             }
         }
