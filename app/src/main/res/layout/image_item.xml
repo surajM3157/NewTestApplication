@@ -11,25 +11,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="TODO" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:id="@+id/tv_product_name"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="5dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="-" />
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="-"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="ADD" />
+    </LinearLayout>
 
 </LinearLayout>

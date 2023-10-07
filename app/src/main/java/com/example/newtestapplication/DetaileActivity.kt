@@ -1,6 +1,7 @@
 package com.example.newtestapplication
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -55,6 +56,11 @@ class DetaileActivity : AppCompatActivity() {
         adapter.setOnItemClickListener(object : ProductAdapter.OnItemClickListener {
             override fun onItemClick(meal: Meal) {
                  viewModal.insertData(meal)
+
+
+                val intent = Intent(applicationContext, MenuLisTActivity::class.java)
+                intent.putExtra("mealList", ArrayList(productList))
+                startActivity(intent)
 
                 val message = "Item clicked: ${meal.strMeal}"
                 Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()

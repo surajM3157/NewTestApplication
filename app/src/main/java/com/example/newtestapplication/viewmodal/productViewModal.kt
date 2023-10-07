@@ -13,6 +13,7 @@ class productViewModal(
     private val productRepository: productRepository,
     private val contactDao: ContactDAO
 ) : ViewModel() {
+
     fun insertData(meal: Meal) {
         GlobalScope.launch {
             contactDao.insertContact(meal)
@@ -27,5 +28,8 @@ class productViewModal(
 
     val product: LiveData<product_detaile>
         get() = productRepository.product
+
+    val product_detaile: LiveData<List<Meal>>
+        get() = contactDao.getContact()
 
 }
