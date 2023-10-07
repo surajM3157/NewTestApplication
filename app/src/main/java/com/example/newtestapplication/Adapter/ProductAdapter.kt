@@ -28,9 +28,8 @@ class ProductAdapter(
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION){
+                if (position != RecyclerView.NO_POSITION) {
                     itemClickListener?.onItemClick(productList[position])
-
                 }
             }
         }
@@ -49,14 +48,6 @@ class ProductAdapter(
             .into(holder.productImageView)
         val nameText = product.strMeal
         holder.product_name.text = nameText
-        /* holder.itemView.setOnClickListener {
-             val mealEntity = Meal(
-                 0,
-                 idMeal = product.idMeal,
-                 strMeal = product.strMeal,
-                 strMealThumb = product.strMealThumb
-             )
-         }*/
     }
 
 
