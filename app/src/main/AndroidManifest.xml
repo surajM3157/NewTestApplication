@@ -15,6 +15,9 @@
         android:theme="@style/Theme.NewTestApplication"
         tools:targetApi="31">
         <activity
+            android:name=".MenuLisTActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuListActivity"
             android:exported="false" />
         <activity
